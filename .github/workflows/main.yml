@@ -27,5 +27,4 @@ jobs:
             const { repo: { owner, repo } } = context;
             const { data } = await github.rest.actions.getActionsCacheList({ owner, repo })
             console.log(data)
-            const summary = '```json\n' + JSON.stringify(data, null, 2) + '\n```'
-            await core.summary.addRaw(JSON.stringify(data, null, 2)).write()
+            await core.summary.addCodeBlock(JSON.stringify(data, null, 2), 'json').write()
