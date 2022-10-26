@@ -14,6 +14,7 @@ jobs:
 
       - uses: actions/cache@v2
         with:
+          path: node_modules
           key: cache-${{ steps.setup-node.outputs.node-version }}-${{ hashFiles('package.json')}}
 
       - run: npm install
